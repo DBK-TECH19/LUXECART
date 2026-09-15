@@ -1,0 +1,637 @@
+/* =========================================
+   LUXECART HOME
+========================================= */
+
+.home-page {
+  overflow: hidden;
+  background: #ffffff;
+  color: #111111;
+}
+
+/* =========================================
+   GENERAL SECTIONS
+========================================= */
+
+.home-section {
+  position: relative;
+  padding: 110px 6vw;
+}
+
+.home-reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.home-visible .home-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.section-heading {
+  max-width: 850px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.section-heading-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.section-heading-top p {
+  margin: 0;
+  color: #8b8b8b;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.section-line {
+  width: 45px;
+  height: 1px;
+  background: #d8d8d8;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: #111111;
+  font-size: clamp(2.3rem, 5vw, 4.5rem);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -2px;
+}
+
+.section-description {
+  display: block;
+  max-width: 650px;
+  margin: 22px auto 0;
+  color: #777777;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* =========================================
+   PRODUCT GRID
+========================================= */
+
+.home-products-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.home-product-item {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: productReveal 0.8s ease forwards;
+}
+
+@keyframes productReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   LOADING
+========================================= */
+
+.featured-loading {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.featured-loading p {
+  margin: 0;
+  color: #888888;
+  font-size: 0.85rem;
+}
+
+.loading-circle {
+  width: 38px;
+  height: 38px;
+  border: 2px solid #e5e5e5;
+  border-top-color: #111111;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.featured-empty {
+  padding: 60px;
+  text-align: center;
+  color: #888888;
+}
+
+/* =========================================
+   VIEW ALL
+========================================= */
+
+.featured-view-all {
+  display: flex;
+  justify-content: center;
+  margin-top: 55px;
+}
+
+.view-all-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 22px;
+  border: 1px solid #111111;
+  color: #111111;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.view-all-button span {
+  transition: transform 0.3s ease;
+}
+
+.view-all-button:hover {
+  background: #111111;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.view-all-button:hover span {
+  transform: translateX(5px);
+}
+
+/* =========================================
+   LUXURY STATEMENT
+========================================= */
+/* =========================================
+   LUXURY STATEMENT
+========================================= */
+
+.luxury-statement {
+  position: relative;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 255, 255, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(255, 255, 255, 0.08),
+      transparent 30%
+    ),
+    #111111;
+
+  color: #ffffff;
+}
+
+/* Animated light sweep */
+
+.luxury-statement::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    115deg,
+    transparent 15%,
+    rgba(255, 255, 255, 0.06) 45%,
+    rgba(255, 255, 255, 0.02) 55%,
+    transparent 85%
+  );
+
+  transform: translateX(-100%);
+  animation: luxurySweep 8s ease-in-out infinite;
+}
+
+@keyframes luxurySweep {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Background glow */
+
+.luxury-statement-glow {
+  position: absolute;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  filter: blur(70px);
+
+  animation: luxuryGlow 6s ease-in-out infinite;
+}
+
+@keyframes luxuryGlow {
+  0%,
+  100% {
+    transform: scale(0.85);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 0.9;
+  }
+}
+
+/* Main content */
+
+.luxury-statement-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(850px, 90%);
+
+  text-align: center;
+}
+
+/* Small heading */
+
+.luxury-statement-content > span {
+  display: block;
+
+  margin-bottom: 28px;
+
+  color: #c4c4c4;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 4px;
+}
+
+/* MAIN TITLE */
+
+.luxury-statement-content h2 {
+  margin: 0;
+
+  color: #ffffff !important;
+
+  font-size: clamp(
+    3.2rem,
+    7vw,
+    6.8rem
+  );
+
+  line-height: 0.95;
+
+  font-weight: 500;
+
+  letter-spacing: -4px;
+
+  text-shadow:
+    0 2px 15px rgba(0, 0, 0, 0.35);
+
+  animation: luxuryTitle 1.2s ease both;
+}
+
+@keyframes luxuryTitle {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* DESCRIPTION */
+
+.luxury-statement-content p {
+  max-width: 600px;
+
+  margin: 32px auto 34px;
+
+  color: #bdbdbd;
+
+  font-size: 1rem;
+
+  line-height: 1.8;
+}
+
+/* BUTTON */
+
+.luxury-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  padding: 16px 25px;
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.4
+  );
+
+  background: transparent;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 0.82rem;
+
+  font-weight: 600;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.luxury-button span {
+  transition: transform 0.3s ease;
+}
+
+.luxury-button:hover {
+  background: #ffffff;
+
+  color: #111111;
+
+  border-color: #ffffff;
+
+  transform: translateY(-4px);
+}
+
+.luxury-button:hover span {
+  transform: translate(5px, -3px);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .luxury-statement {
+    min-height: 580px;
+
+    padding: 80px 20px;
+  }
+
+  .luxury-statement-content h2 {
+    font-size: clamp(
+      2.8rem,
+      12vw,
+      4.5rem
+    );
+
+    letter-spacing: -2px;
+  }
+
+  .luxury-statement-content p {
+    font-size: 0.88rem;
+  }
+}
+
+/* =========================================
+   CATEGORY SECTION
+========================================= */
+
+.home-category-section {
+  padding: 20px 0;
+  background: #f8f8f6;
+}
+
+/* =========================================
+   WHY CHOOSE US
+========================================= */
+
+.home-why-section {
+  position: relative;
+  background: #ffffff;
+}
+
+/* =========================================
+   FINAL CTA
+========================================= */
+
+.home-final-cta {
+  position: relative;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2f1ed;
+}
+
+.home-final-inner {
+  position: relative;
+  z-index: 3;
+  width: min(750px, 90%);
+  text-align: center;
+}
+
+.home-final-inner > span {
+  display: block;
+  margin-bottom: 20px;
+  color: #888888;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.home-final-inner h2 {
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.9;
+  letter-spacing: -4px;
+  font-weight: 500;
+  color: #111111;
+}
+
+.home-final-inner p {
+  margin: 30px auto;
+  color: #777777;
+  font-size: 0.95rem;
+}
+
+.final-shop-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 27px;
+  background: #111111;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.final-shop-button span {
+  transition: transform 0.3s ease;
+}
+
+.final-shop-button:hover {
+  background: #292929;
+  transform: translateY(-4px);
+}
+
+.final-shop-button:hover span {
+  transform: translateX(5px);
+}
+
+/* =========================================
+   FLOATING ORBS
+========================================= */
+
+.final-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.orb-one {
+  width: 280px;
+  height: 280px;
+  top: -80px;
+  left: -70px;
+  background: rgba(0, 0, 0, 0.035);
+  animation: floatOne 8s ease-in-out infinite;
+}
+
+.orb-two {
+  width: 420px;
+  height: 420px;
+  right: -160px;
+  bottom: -180px;
+  background: rgba(0, 0, 0, 0.04);
+  animation: floatTwo 10s ease-in-out infinite;
+}
+
+.orb-three {
+  width: 100px;
+  height: 100px;
+  right: 18%;
+  top: 18%;
+  background: rgba(0, 0, 0, 0.045);
+  animation: floatThree 6s ease-in-out infinite;
+}
+
+@keyframes floatOne {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(40px, 30px);
+  }
+}
+
+@keyframes floatTwo {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-35px, -35px);
+  }
+}
+
+@keyframes floatThree {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-25px);
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .home-section {
+    padding: 80px 20px;
+  }
+
+  .section-heading {
+    margin-bottom: 40px;
+  }
+
+  .section-heading h2 {
+    letter-spacing: -1.5px;
+  }
+
+  .section-line {
+    width: 25px;
+  }
+
+  .luxury-statement {
+    min-height: 550px;
+    padding: 70px 20px;
+  }
+
+  .luxury-statement-content h2 {
+    letter-spacing: -2px;
+  }
+
+  .home-final-cta {
+    min-height: 520px;
+    padding: 70px 20px;
+  }
+
+  .home-final-inner h2 {
+    letter-spacing: -2.5px;
+  }
+}

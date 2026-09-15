@@ -1,0 +1,177 @@
+.product-form-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.product-form-modal {
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.product-form-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.product-form-header h2 {
+  margin: 0;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.close-form-button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #f2f2f0;
+  color: #333;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.close-form-button:hover {
+  background: #e7e7e5;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  background: white;
+  color: #171717;
+  font-family: inherit;
+  font-size: 0.85rem;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #777;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.featured-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 22px;
+  color: #555;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.featured-checkbox input {
+  width: 17px;
+  height: 17px;
+  accent-color: #111;
+  cursor: pointer;
+}
+
+.product-form-error {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: #fff1f1;
+  color: #a33b3b;
+  font-size: 0.8rem;
+}
+
+.product-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.cancel-form-button,
+.save-product-button {
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-form-button {
+  border: 1px solid #ddd;
+  background: white;
+  color: #444;
+}
+
+.save-product-button {
+  border: none;
+  background: #111;
+  color: white;
+}
+
+.save-product-button:hover {
+  background: #2b2b2b;
+}
+
+.save-product-button:disabled,
+.cancel-form-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .product-form-modal {
+    padding: 24px 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .product-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .cancel-form-button,
+  .save-product-button {
+    width: 100%;
+  }
+}

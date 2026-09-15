@@ -1,0 +1,25 @@
+# React / Vite
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# ASP.NET Core
+backend/**/bin/
+backend/**/obj/
+backend/**/TestResults/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Sensitive configuration
+backend/**/appsettings.Production.json
+
+# OS
+.DS_Store
+Thumbs.db
+backend/**/appsettings.json
+backend/**/appsettings.Development.json

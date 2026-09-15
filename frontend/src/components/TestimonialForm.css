@@ -1,0 +1,123 @@
+.testimonial-form-wrapper {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: 50px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+}
+
+.testimonial-form-heading {
+  margin-bottom: 30px;
+}
+
+.testimonial-form-heading p {
+  margin: 0 0 10px;
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  color: #888;
+  font-weight: 600;
+}
+
+.testimonial-form-heading h2 {
+  margin: 0 0 10px;
+  color: #111;
+  font-size: 2rem;
+}
+
+.testimonial-form-heading span {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.testimonial-form {
+  display: grid;
+  gap: 18px;
+}
+
+.testimonial-field {
+  display: grid;
+  gap: 8px;
+}
+
+.testimonial-field label {
+  color: #222;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.testimonial-field input,
+.testimonial-field select,
+.testimonial-field textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #111;
+  padding: 14px 15px;
+  font: inherit;
+  outline: none;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.testimonial-field textarea {
+  resize: vertical;
+}
+
+.testimonial-field input:focus,
+.testimonial-field select:focus,
+.testimonial-field textarea:focus {
+  border-color: #111;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-form button {
+  width: fit-content;
+  margin-top: 5px;
+  border: 0;
+  background: #111;
+  color: #fff;
+  padding: 14px 22px;
+  cursor: pointer;
+  font-weight: 600;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.testimonial-form button:hover {
+  transform: translateY(-2px);
+  background: #292929;
+}
+
+.testimonial-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.testimonial-form-message {
+  margin: 5px 0 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+.testimonial-login-message {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: 25px;
+  background: #f7f7f7;
+  text-align: center;
+  color: #666;
+}
+
+@media (max-width: 600px) {
+  .testimonial-form-wrapper {
+    padding: 30px 20px;
+  }
+
+  .testimonial-form-heading h2 {
+    font-size: 1.6rem;
+  }
+}

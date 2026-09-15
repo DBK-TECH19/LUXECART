@@ -1,0 +1,180 @@
+.product-card {
+  min-width: 0;
+  overflow: hidden;
+  opacity: 0;
+
+  animation: productReveal 0.7s ease forwards;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+}
+
+/* PRODUCT IMAGE */
+
+.product-image-wrapper {
+  position: relative;
+
+  width: 100%;
+  height: 280px;
+
+  overflow: hidden;
+
+  background: #f3f1ed;
+}
+
+.product-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.4s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+/* ADD TO CART */
+
+.quick-add {
+  position: absolute;
+
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+
+  padding: 12px;
+
+  border: none;
+
+  background: #111;
+  color: #fff;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  opacity: 0;
+  transform: translateY(12px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.product-card:hover .quick-add {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quick-add:hover {
+  background: #333;
+}
+
+/* PRODUCT DETAILS */
+
+.product-info {
+  padding: 16px 2px 5px;
+}
+
+.product-category {
+  margin: 0 0 6px;
+
+  color: #999;
+
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+.product-info h3 {
+  margin: 0 0 7px;
+
+  color: #111;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.product-price {
+  margin: 0;
+
+  color: #333;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ENTRANCE ANIMATION */
+
+@keyframes productReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .product-image-wrapper {
+    height: 260px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .product-image-wrapper {
+    height: 220px;
+  }
+
+  .product-info h3 {
+    font-size: 0.85rem;
+  }
+
+  .product-price {
+    font-size: 0.8rem;
+  }
+
+  .quick-add {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card,
+  .product-image,
+  .quick-add {
+    animation: none;
+    transition: none;
+  }
+
+  .product-card {
+    opacity: 1;
+  }
+}

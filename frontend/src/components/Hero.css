@@ -1,0 +1,239 @@
+.hero {
+  position: relative;
+  min-height: 680px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5f2ed 0%,
+      #e9e4dc 45%,
+      #d8d1c6 100%
+    );
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.35);
+
+  top: -300px;
+  right: -180px;
+
+  animation: heroFloat 10s ease-in-out infinite;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  bottom: -220px;
+  left: -120px;
+
+  animation: heroFloat 12s ease-in-out infinite reverse;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(245, 242, 237, 0.95),
+      rgba(245, 242, 237, 0.45),
+      rgba(245, 242, 237, 0.1)
+    );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(900px, 90%);
+  text-align: center;
+
+  animation: heroReveal 1s ease-out both;
+}
+
+.hero-label {
+  margin-bottom: 22px;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+
+  color: #555;
+
+  animation: fadeUp 0.8s ease-out 0.1s both;
+}
+
+.hero h1 {
+  margin: 0;
+
+  font-size: clamp(3.2rem, 8vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -4px;
+  font-weight: 700;
+
+  color: #111;
+
+  animation: fadeUp 0.9s ease-out 0.2s both;
+}
+
+.hero h1 span {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -2px;
+}
+
+.hero-description {
+  max-width: 620px;
+  margin: 30px auto;
+
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.8;
+
+  animation: fadeUp 0.9s ease-out 0.35s both;
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 16px 28px;
+
+  background: #111;
+  color: white;
+
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  border: 1px solid #111;
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+
+  animation: fadeUp 0.9s ease-out 0.5s both;
+}
+
+.hero-button span {
+  font-size: 1.2rem;
+
+  transition: transform 0.35s ease;
+}
+
+.hero-button:hover {
+  background: transparent;
+  color: #111;
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.hero-button:hover span {
+  transform: translateX(5px);
+}
+
+/* Entrance animation */
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Background movement */
+
+@keyframes heroFloat {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(30px, 20px);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 600px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 15vw, 5rem);
+    letter-spacing: -2px;
+  }
+
+  .hero-description {
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  .hero-label {
+    font-size: 0.68rem;
+    letter-spacing: 3px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after,
+  .hero-content,
+  .hero-label,
+  .hero h1,
+  .hero-description,
+  .hero-button {
+    animation: none;
+  }
+
+  .hero-button,
+  .hero-button span {
+    transition: none;
+  }
+}
