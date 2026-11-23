@@ -1,3 +1,4 @@
+
 using Ecommerce.API.Data;
 using Ecommerce.API.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,7 @@ public class OrdersController : ControllerBase
     public async Task<IActionResult> GetOrders()
     {
         var orders = await _context.Orders
+            .AsNoTracking()
             .OrderByDescending(o => o.CreatedAt)
             .Select(o => new
             {
@@ -48,6 +50,7 @@ public class OrdersController : ControllerBase
     public async Task<IActionResult> GetOrder(int id)
     {
         var order = await _context.Orders
+            .AsNoTracking()
             .Where(o => o.Id == id)
             .Select(o => new
             {
@@ -78,7 +81,7 @@ public class OrdersController : ControllerBase
         return Ok(order);
     }
 
-    // GET: api/orders/customer/1
+    // GET: api/orders/customer/5
     [HttpGet("customer/{userId}")]
     public async Task<IActionResult> GetCustomerOrders(int userId)
     {
@@ -94,6 +97,7 @@ public class OrdersController : ControllerBase
         }
 
         var orders = await _context.Orders
+            .AsNoTracking()
             .Where(o => o.UserId == userId)
             .OrderByDescending(o => o.CreatedAt)
             .Select(o => new
@@ -214,26 +218,13 @@ public class OrdersController : ControllerBase
             });
         }
 
-        existingOrder.CustomerName =
-            order.CustomerName;
-
-        existingOrder.CustomerEmail =
-            order.CustomerEmail;
-
-        existingOrder.CustomerPhone =
-            order.CustomerPhone;
-
-        existingOrder.ShippingAddress =
-            order.ShippingAddress;
-
-        existingOrder.TotalAmount =
-            order.TotalAmount;
-
-        existingOrder.PaymentStatus =
-            order.PaymentStatus;
-
-        existingOrder.DeliveryStatus =
-            order.DeliveryStatus;
+        existingOrder.CustomerName = order.CustomerName;
+        existingOrder.CustomerEmail = order.CustomerEmail;
+        existingOrder.CustomerPhone = order.CustomerPhone;
+        existingOrder.ShippingAddress = order.ShippingAddress;
+        existingOrder.TotalAmount = order.TotalAmount;
+        existingOrder.PaymentStatus = order.PaymentStatus;
+        existingOrder.DeliveryStatus = order.DeliveryStatus;
 
         await _context.SaveChangesAsync();
 
@@ -306,14 +297,12 @@ public class OrdersController : ControllerBase
 
         order.DeliveryStatus = validStatus;
 
-        if (validStatus == "Shipped" &&
-            order.ShippedAt == null)
+        if (validStatus == "Shipped" && order.ShippedAt == null)
         {
             order.ShippedAt = DateTime.UtcNow;
         }
 
-        if (validStatus == "Delivered" &&
-            order.DeliveredAt == null)
+        if (validStatus == "Delivered" && order.DeliveredAt == null)
         {
             order.DeliveredAt = DateTime.UtcNow;
         }
@@ -432,6 +421,7 @@ public class OrdersController : ControllerBase
     }
 }
 
+// Request models
 public class DeliveryStatusRequest
 {
     public string Status { get; set; } = string.Empty;

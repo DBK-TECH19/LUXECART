@@ -15,6 +15,9 @@ function Register() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   function handleChange(event) {
     setFormData({
       ...formData,
@@ -73,6 +76,7 @@ function Register() {
   return (
     <main className="auth-page">
       <div className="auth-card">
+
         <div className="auth-header">
           <p>LUXECART</p>
 
@@ -84,6 +88,7 @@ function Register() {
         </div>
 
         <form onSubmit={handleSubmit}>
+
           <div className="auth-field">
             <label>Name</label>
 
@@ -110,30 +115,138 @@ function Register() {
             />
           </div>
 
+          {/* PASSWORD */}
+
           <div className="auth-field">
             <label>Password</label>
 
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Create a password"
-              required
-            />
+            <div className="password-input-wrapper">
+
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Create a password"
+                required
+              />
+
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() =>
+                  setShowPassword(!showPassword)
+                }
+                aria-label={
+                  showPassword
+                    ? "Hide password"
+                    : "Show password"
+                }
+              >
+                {showPassword ? (
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M3 3l18 18" />
+                    <path d="M10.6 10.6a2 2 0 0 0 2.8 2.8" />
+                    <path d="M9.9 4.2A10.7 10.7 0 0 1 12 4c5 0 9.3 3.1 11 8-0.6 1.7-1.5 3.2-2.7 4.4" />
+                    <path d="M6.6 6.6C4.9 7.8 3.6 9.7 3 12c1.7 4.9 6 8 9 8 1.2 0 2.4-.2 3.5-.7" />
+                  </svg>
+                ) : (
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M2.5 12s3.5-7 9.5-7 9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                )}
+              </button>
+
+            </div>
           </div>
+
+          {/* CONFIRM PASSWORD */}
 
           <div className="auth-field">
             <label>Confirm Password</label>
 
-            <input
-              type="password"
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              placeholder="Confirm your password"
-              required
-            />
+            <div className="password-input-wrapper">
+
+              <input
+                type={
+                  showConfirmPassword
+                    ? "text"
+                    : "password"
+                }
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                placeholder="Confirm your password"
+                required
+              />
+
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() =>
+                  setShowConfirmPassword(
+                    !showConfirmPassword
+                  )
+                }
+                aria-label={
+                  showConfirmPassword
+                    ? "Hide password"
+                    : "Show password"
+                }
+              >
+                {showConfirmPassword ? (
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M3 3l18 18" />
+                    <path d="M10.6 10.6a2 2 0 0 0 2.8 2.8" />
+                    <path d="M9.9 4.2A10.7 10.7 0 0 1 12 4c5 0 9.3 3.1 11 8-0.6 1.7-1.5 3.2-2.7 4.4" />
+                    <path d="M6.6 6.6C4.9 7.8 3.6 9.7 3 12c1.7 4.9 6 8 9 8 1.2 0 2.4-.2 3.5-.7" />
+                  </svg>
+                ) : (
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M2.5 12s3.5-7 9.5-7 9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                )}
+              </button>
+
+            </div>
           </div>
 
           <button
@@ -141,8 +254,11 @@ function Register() {
             className="auth-button"
             disabled={loading}
           >
-            {loading ? "Creating Account..." : "Create Account"}
+            {loading
+              ? "Creating Account..."
+              : "Create Account"}
           </button>
+
         </form>
 
         {message && (
@@ -157,6 +273,7 @@ function Register() {
             Sign In
           </Link>
         </p>
+
       </div>
     </main>
   );

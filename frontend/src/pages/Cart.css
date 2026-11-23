@@ -179,3 +179,137 @@
     grid-column: 2;
   }
 }
+
+/* ================================
+   LOGIN REQUIRED CHECKOUT CARD
+================================ */
+
+.login-required-message {
+  margin-top: 18px;
+  padding: 20px;
+
+  background: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+
+  animation: loginMessageAppear 0.3s ease;
+}
+
+.login-required-message::before {
+  content: "";
+  display: block;
+
+  width: 36px;
+  height: 3px;
+
+  margin-bottom: 16px;
+
+  background: #111;
+  border-radius: 10px;
+}
+
+.login-required-message p {
+  margin: 0 0 6px;
+
+  color: #111;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.login-required-message p::after {
+  content: " Sign in to continue securely, or create an account if you're new to LUXECART.";
+  display: block;
+
+  margin-top: 5px;
+
+  color: #777;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.login-required-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+
+  margin-top: 18px;
+}
+
+.login-required-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 46px;
+  padding: 0 16px;
+
+  border-radius: 8px;
+
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Log In */
+.login-required-links a:first-child {
+  background: #111;
+  color: #fff;
+  border: 1px solid #111;
+}
+
+.login-required-links a:first-child:hover {
+  background: #2a2a2a;
+  border-color: #2a2a2a;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Create Account */
+.login-required-links a:last-child {
+  background: #fff;
+  color: #111;
+  border: 1px solid #d6d6d6;
+}
+
+.login-required-links a:last-child:hover {
+  background: #f2f2f2;
+  border-color: #111;
+  transform: translateY(-1px);
+}
+
+/* Subtle entrance animation */
+@keyframes loginMessageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .login-required-message {
+    padding: 17px;
+  }
+
+  .login-required-links {
+    grid-template-columns: 1fr;
+  }
+
+  .login-required-links a {
+    min-height: 44px;
+  }
+}
