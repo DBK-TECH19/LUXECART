@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5137/api";
+const API_URL = "https://luxecart-ogf3.onrender.com/api";
 
 // ================================
 // PRODUCTS
